@@ -1,0 +1,13 @@
+{
+  "id": "zmkDongleStats",
+  "name": "ZMK Dongle Stats",
+  "description": "Battery of each split half, read from the ZMK dongle over USB",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "void",
+  "icon": "keyboard",
+  "type": "widget",
+  "capabilities": ["dankbar-widget"],
+  "component": "./ZmkDongleStatsWidget.qml",
+  "permissions": ["process"]
+}
