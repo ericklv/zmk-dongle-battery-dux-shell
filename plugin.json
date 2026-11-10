@@ -4,7 +4,7 @@
   "description": "Battery of each split half, read from the ZMK dongle over USB",
   "version": "0.1.0",
   "license": "AGPL-3.0-or-later",
-  "author": "ericklv",
+  "author": "eleve",
   "icon": "keyboard",
   "type": "widget",
   "capabilities": [

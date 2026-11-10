@@ -4,6 +4,8 @@ DankBar widget that shows the battery level of each half of a ZMK split keyboard
 
 The bar shows `L 87% R 92%`. Clicking it opens a popout with the outline of each half and its level. A half at 20% or lower turns red.
 
+![Popout and bar pill](assets/screenshot.png)
+
 ## How it works
 
 - `zmk_battery.py` opens the dongle's USB CDC ACM port (`/dev/serial/by-id/usb-ZMK_Project_*`) and speaks the Studio RPC framing.
