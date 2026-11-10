@@ -104,7 +104,7 @@ PluginComponent {
 
             DCommon.DIcon {
                 name: "keyboard"
-                size: Theme.iconSize - 6
+                size: root.iconSize
                 color: root.sides.length > 0 ? Theme.surfaceText : Theme.surfaceVariantText
                 anchors.verticalCenter: parent.verticalCenter
             }
@@ -123,7 +123,7 @@ PluginComponent {
                 StyledText {
                     required property var modelData
                     text: modelData.label + " " + modelData.level + "%"
-                    font.pixelSize: Theme.fontSizeSmall + 2
+                    font.pixelSize: Theme.fontSizeMedium
                     color: modelData.level <= root.lowLevel ? Theme.error : Theme.surfaceText
                     opacity: root.error === "" ? 1.0 : 0.6
                     anchors.verticalCenter: parent.verticalCenter
@@ -138,7 +138,7 @@ PluginComponent {
 
             DCommon.DIcon {
                 name: "keyboard"
-                size: Theme.iconSize - 6
+                size: root.iconSize
                 color: root.sides.length > 0 ? Theme.surfaceText : Theme.surfaceVariantText
                 anchors.horizontalCenter: parent.horizontalCenter
             }
@@ -149,7 +149,7 @@ PluginComponent {
                 StyledText {
                     required property var modelData
                     text: modelData.label + modelData.level
-                    font.pixelSize: Theme.fontSizeSmall + 2
+                    font.pixelSize: Theme.fontSizeMedium
                     color: modelData.level <= root.lowLevel ? Theme.error : Theme.surfaceText
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
@@ -258,7 +258,7 @@ PluginComponent {
         // Center of the largest circle that fits inside the outline
         readonly property var thickest: shape ? (mirrored ? shape.thick.right : shape.thick.left) : [0.5, 0.3]
 
-        implicitWidth: 160
+        implicitWidth: Theme.iconSizeLarge * 5
         implicitHeight: implicitWidth * aspect
 
         onLowChanged: canvas.requestPaint()
@@ -308,7 +308,7 @@ PluginComponent {
             StyledText {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: half.known ? half.level + "%" : "--"
-                font.pixelSize: Theme.fontSizeXLarge + 8
+                font.pixelSize: Theme.fontSizeXXLarge
                 font.weight: Font.Bold
                 color: half.low ? Theme.error : Theme.surfaceText
             }

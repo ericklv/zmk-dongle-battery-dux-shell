@@ -13,5 +13,6 @@
   "component": "./ZmkDongleStatsWidget.qml",
   "permissions": [
     "process"
-  ]
+  ],
+  "requires_dms": ">=2.0.0"
 }
