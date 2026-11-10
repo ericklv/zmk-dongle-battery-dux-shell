@@ -33,7 +33,7 @@ Levels are the latest entry each half recorded, not a live reading. How often th
 ### Host
 
 - Dux Shell with plugin support.
-- Python 3.10 or newer with `pyserial` and `protobuf`.
+- Python 3.10 or newer as `python3`. The script uses only the standard library and encodes the few Studio messages it needs by hand.
 - Read and write access to `/dev/ttyACM*`. On Arch this means membership in the `uucp` group.
 
 ## Installation
@@ -41,19 +41,14 @@ Levels are the latest entry each half recorded, not a live reading. How often th
 ```sh
 git clone https://github.com/ericklv/zmk-dongle-battery-dux-shell \
   ~/.config/DankMaterialShell/plugins/zmkDongleStats
-cd ~/.config/DankMaterialShell/plugins/zmkDongleStats
-python3 -m venv .venv
-.venv/bin/pip install pyserial==3.5 protobuf==7.36.2
 ```
 
 Then enable **ZMK Dongle Stats** in the plugin settings and add it to the bar.
 
-The widget runs `.venv/bin/python` from the plugin directory, so the shell's `PATH` does not matter.
-
 ## Command line
 
 ```sh
-.venv/bin/python zmk_battery.py
+python3 zmk_battery.py
 ```
 
 ```json
@@ -90,11 +85,11 @@ Unknown names fall back to `corne`. Every outline is tilted 5 degrees and stored
 ## Limitations
 
 - The serial port is opened exclusively. While ZMK Studio or another Studio client holds it, reads fail and the widget dims the last known levels.
-- A read takes about 4 to 11 seconds because of the relay retries.
+- A read takes about 2 seconds. Each retry for a dropped relay entry adds about 2 more.
 - Only two halves are expected by default. Use `--labels` for other layouts.
 
 ## License
 
 AGPL-3.0-or-later. See [LICENSE](LICENSE).
 
-`studio_pb/` contains Python code generated from [zmk-studio-messages](https://github.com/cormoran/zmk-studio-messages), MIT licensed. See [studio_pb/LICENSE](studio_pb/LICENSE).
+Message field numbers follow [zmk-studio-messages](https://github.com/cormoran/zmk-studio-messages).

@@ -68,7 +68,7 @@ PluginComponent {
     Process {
         id: reader
         readonly property string dir: Qt.resolvedUrl(".").toString().replace("file://", "")
-        command: [dir + ".venv/bin/python", dir + "zmk_battery.py"].concat(root.selectedDevice ? ["--device", root.selectedDevice] : [])
+        command: ["python3", "-I", dir + "zmk_battery.py"].concat(root.selectedDevice ? ["--device", root.selectedDevice] : [])
         stdout: SplitParser {
             onRead: line => {
                 try {
