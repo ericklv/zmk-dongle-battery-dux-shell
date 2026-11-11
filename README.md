@@ -90,6 +90,16 @@ Unknown names fall back to `corne`. Every outline is tilted 5 degrees and stored
 - A read takes about 2 seconds. Each retry for a dropped relay entry adds about 2 more.
 - Only two halves are expected by default. Use `--labels` for other layouts.
 
+## Troubleshooting
+
+**A half still reads low after charging.** Its latest history entry predates the charge.
+
+- With `CONFIG_ZMK_BATTERY_SKIP_IF_USB_POWERED=y`, the default, halves record nothing on USB power. After unplugging, the next record comes within `CONFIG_ZMK_BATTERY_HISTORY_INTERVAL_MINUTES`, 5 by default.
+- If it stays stale, the half may still report USB power. Power cycle it: the first record after boot is always saved.
+- Build the halves with `CONFIG_ZMK_BATTERY_SKIP_IF_USB_POWERED=n` to record while charging too.
+
+`timestamp` is seconds since the half booted. `1` means the entry was recorded at boot.
+
 ## License
 
 AGPL-3.0-or-later. See [LICENSE](LICENSE).
